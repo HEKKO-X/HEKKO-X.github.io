@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kazeem Habeeb — Penetration Tester</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0a0d0a;
+      color: #9FE1CB;
+      font-family: 'Courier New', Courier, monospace;
+      line-height: 1.6;
+      padding: 0 1.5rem;
+    }
+
+    a { color: #5DCAA5; text-decoration: none; border-bottom: 1px solid transparent; }
+    a:hover { border-bottom: 1px solid #5DCAA5; }
+
+    header {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      position: sticky;
+      top: 0;
+      background: #0a0d0a;
+    }
+    header .logo { color: #9FE1CB; font-weight: bold; }
+    header nav a { margin-left: 1.5rem; font-size: 14px; }
+
+    section {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 0;
+      border-top: 1px solid #1D9E75;
+    }
+    .hero { border-top: none; padding-top: 1rem; }
+
+    .prompt-line { color: #1D9E75; font-size: 13px; margin-bottom: 0.75rem; }
+    .hero h1 { font-size: 28px; color: #E1F5EE; margin-bottom: 0.75rem; line-height: 1.4; }
+    .subtext { color: #5DCAA5; font-size: 14px; margin-bottom: 1.5rem; max-width: 560px; }
+
+    .links a {
+      font-size: 13px; border: 1px solid #1D9E75; padding: 4px 10px; border-radius: 3px;
+      margin-right: 8px; display: inline-block; margin-bottom: 8px;
+    }
+    .links a:hover { background: #0F6E56; border-color: #5DCAA5; }
+
+    .section-label { color: #1D9E75; font-size: 13px; margin-bottom: 1.5rem; }
+
+    /* stats */
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .stat { border: 1px solid #12271f; padding: 1rem; text-align: center; border-radius: 4px; }
+    .stat .num { font-size: 26px; color: #E1F5EE; }
+    .stat .label { font-size: 12px; color: #5DCAA5; margin-top: 4px; }
+
+    /* about */
+    .about p { color: #9FE1CB; font-size: 14px; max-width: 620px; margin-bottom: 0.75rem; }
+
+    /* tools */
+    .tool-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tool-tags span {
+      font-size: 12px; border: 1px solid #1D9E75; color: #5DCAA5;
+      padding: 4px 10px; border-radius: 3px;
+    }
+
+    /* experience */
+    .job { border-left: 2px solid #1D9E75; padding-left: 1rem; margin-bottom: 1.5rem; display: flex; gap: 12px; }
+    .job-badge {
+      flex-shrink: 0; width: 36px; height: 36px; border: 1px solid #1D9E75; border-radius: 4px;
+      display: flex; align-items: center; justify-content: center; font-size: 12px; color: #E1F5EE;
+    }
+    .job h3 { color: #E1F5EE; font-size: 16px; margin-bottom: 0.15rem; }
+    .job p { color: #5DCAA5; font-size: 14px; }
+    .meta { color: #1D9E75 !important; font-size: 12px !important; margin-top: 0.25rem; }
+
+    /* projects */
+    .project { border-left: 2px solid #1D9E75; padding-left: 1rem; margin-bottom: 1.75rem; }
+    .project h3 { color: #E1F5EE; font-size: 16px; margin-bottom: 0.4rem; }
+    .project p { color: #5DCAA5; font-size: 14px; margin-bottom: 0.5rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 0.5rem; }
+    .project-tags span {
+      font-size: 11px; color: #1D9E75; border: 1px solid #1D9E75; padding: 2px 8px; border-radius: 3px;
+    }
+    .project-links a { font-size: 12px; margin-right: 12px; }
+
+    /* certifications */
+    .cert-list { list-style: none; }
+    .cert-list li {
+      font-size: 14px; color: #5DCAA5; padding: 0.5rem 0; border-bottom: 1px solid #12271f;
+    }
+    .cert-list li::before { content: "> "; color: #1D9E75; }
+
+    /* philosophy */
+    .philosophy p { color: #9FE1CB; font-size: 14px; max-width: 620px; }
+
+    footer {
+      max-width: 760px; margin: 0 auto; padding: 2rem 0 3rem; font-size: 12px; color: #1D9E75;
+    }
+
+    @media (max-width: 600px) {
+      header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+      header nav a { margin-left: 0; margin-right: 1.25rem; }
+      .hero h1 { font-size: 22px; }
+      .stats { grid-template-columns: 1fr; }
+      .job { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <p class="logo">HEKKO</p>
+    <nav>
+      <a href="#projects">projects</a>
+      <a href="#experience">experience</a>
+      <a href="#certifications">certifications</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <p class="prompt-line">HEKKO@root:~$ whoami</p>
+    <h1>Kazeem Habeeb. Penetration tester. Offensive security.</h1>
+    <p class="subtext">Based in Ibadan, Nigeria. Breaking things so the real attackers can't.</p>
+    <div class="links">
+      <a href="https://github.com/HEKKO-X" target="_blank">github</a>
+      <a href="https://x.com/habeebulloh_" target="_blank">x</a>
+      <a href="https://medium.com/@hekko-x" target="_blank">medium</a>
+      <a href="https://www.linkedin.com/in/kazeem-habeeb-2b8b55308/" target="_blank">linkedin</a>
+      <a href="mailto:kazeemhabeeb03@gmail.com">email</a>
+    </div>
+  </section>
+
+  <section class="about">
+    <p class="section-label">$ cat ./about.md</p>
+    <p>I got into cybersecurity out of curiosity, poking around systems before I had a name for what I was doing. That curiosity led me to enroll at Delux Coding School for a 6-month program, and the more I learned, the more interested I got, which carried me into an internship at Decodelabs and from there into the Offensive Security track at UBI x T.R.A.N. Right now I'm splitting my time between hands-on practice (CTFs, labs, real assessments), freelance penetration testing work, and the search for my first full-time role in the field.</p>
+  </section>
+
+  <section class="stats">
+    <div class="stat"><p class="num">4</p><p class="label">projects</p></div>
+    <div class="stat"><p class="num">5</p><p class="label">certifications</p></div>
+    <div class="stat"><p class="num">2</p><p class="label">internships</p></div>
+  </section>
+
+  <section class="tools">
+    <p class="section-label">$ cat ./toolkit.txt</p>
+    <div class="tool-tags">
+      <span>Burp Suite</span>
+      <span>OWASP ZAP</span>
+      <span>curl</span>
+      <span>Browser DevTools</span>
+      <span>GoPhish</span>
+      <span>Ngrok</span>
+    </div>
+  </section>
+
+  <section id="experience" class="experience">
+    <p class="section-label">$ cat ./experience.log</p>
+
+    <div class="job">
+      <div class="job-badge">FV</div>
+      <div>
+        <h3>Penetration Tester (Freelance)</h3>
+        <p>Freelance penetration testing services.</p>
+        <p class="meta">Fiverr</p>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-badge">DL</div>
+      <div>
+        <h3>Cybersecurity Intern</h3>
+        <p>Produced three Python security projects: password strength checker, Caesar Cipher CLI tool, Phishing Awareness Analyzer.</p>
+        <p class="meta">Decodelabs · Apr–May 2026</p>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-badge">DX</div>
+      <div>
+        <h3>Cybersecurity Program</h3>
+        <p>Completed the Cybersecurity Program.</p>
+        <p class="meta">Delux Coding School · Jun 2025–Jan 2026</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="projects" class="projects">
+    <p class="section-label">$ ls ./projects</p>
+
+    <article class="project">
+      <div class="project-tags"><span>API SECURITY</span><span>WEB APPSEC</span></div>
+      <h3>HandyHyve API Security Assessment</h3>
+      <p>API security assessment using Burp Suite, curl, OWASP ZAP, and browser DevTools.</p>
+      <p class="meta">Dec 2025</p>
+      <div class="project-links">
+        <a href="https://github.com/HEKKO-X" target="_blank">source</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-tags"><span>CTF</span><span>PRIVESC</span></div>
+      <h3>DarkHole V2 — VulnHub CTF</h3>
+      <p>Full exploitation chain, documented on GitHub and Medium.</p>
+      <div class="project-links">
+        <a href="https://github.com/HEKKO-X" target="_blank">source</a>
+        <a href="https://medium.com/@hekko-x" target="_blank">writeup</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-tags"><span>RECON</span></div>
+      <h3>geteazra.com Reconnaissance</h3>
+      <p>Live reconnaissance engagement.</p>
+    </article>
+
+    <article class="project">
+      <div class="project-tags"><span>SOCIAL ENGINEERING</span><span>PHISHING</span></div>
+      <h3>Phishing Simulation Lab</h3>
+      <p>Built using GoPhish and Ngrok.</p>
+    </article>
+
+  </section>
+
+  <section id="certifications" class="certifications">
+    <p class="section-label">$ cat ./certifications.txt</p>
+    <ul class="cert-list">
+      <li>Security Architect — Ethical Hacking (UBI Stage 7)</li>
+      <li>Google Cybersecurity Certificate (Coursera)</li>
+      <li>ISC2 CC — Domains 1–2</li>
+      <li>Cisco Introduction to Cybersecurity</li>
+      <li>Tiaago Junior Cybersecurity Certificate</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="contact">
+    <p class="section-label">$ ./contact --reach-me</p>
+    <p class="subtext">Open to internships, freelance pentesting work, and cybersecurity conversations.</p>
+    <div class="links">
+      <a href="https://github.com/HEKKO-X" target="_blank">github</a>
+      <a href="https://www.linkedin.com/in/kazeem-habeeb-2b8b55308/" target="_blank">linkedin</a>
+      <a href="https://medium.com/@hekko-x" target="_blank">medium</a>
+      <a href="mailto:kazeemhabeeb03@gmail.com">email</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Kazeem Habeeb (HEKKO)</p>
+  </footer>
+
+</body>
+</html>
