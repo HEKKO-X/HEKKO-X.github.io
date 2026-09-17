@@ -32,11 +32,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 
 .heading{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(3rem,7vw,6.5rem);line-height:0.95;text-transform:uppercase;}
 .heading .w{color:var(--white);display:block;}
-.heading .r{color:var(--accent);display:block;transition:text-shadow 0.1s;}
-.heading:hover .r{text-shadow:2px 0 var(--accent),-2px 0 #00eaff;animation:glitch 0.3s ease infinite;}
-@keyframes glitch{0%,100%{text-shadow:2px 0 var(--accent),-2px 0 #00eaff;}50%{text-shadow:-2px 0 var(--accent),2px 0 #00eaff;}}
+.heading .r{color:var(--accent);display:block;position:relative;}
+.heading .r::before,.heading .r::after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;overflow:hidden;opacity:0;}
+.heading .r::before{color:#7F77DD;}
+.heading .r::after{color:#1D9E75;}
+.heading:hover .r::before{opacity:1;animation:sliceA 0.4s steps(2) infinite;}
+.heading:hover .r::after{opacity:1;animation:sliceB 0.4s steps(2) infinite;}
+@keyframes sliceA{0%,100%{clip-path:inset(0 0 85% 0);transform:translate(0,0);}20%{clip-path:inset(10% 0 70% 0);transform:translate(-3px,0);}40%{clip-path:inset(50% 0 20% 0);transform:translate(3px,0);}60%{clip-path:inset(70% 0 5% 0);transform:translate(-2px,0);}80%{clip-path:inset(30% 0 55% 0);transform:translate(2px,0);}}
+@keyframes sliceB{0%,100%{clip-path:inset(80% 0 0 0);transform:translate(0,0);}20%{clip-path:inset(60% 0 15% 0);transform:translate(2px,0);}40%{clip-path:inset(15% 0 60% 0);transform:translate(-3px,0);}60%{clip-path:inset(5% 0 80% 0);transform:translate(2px,0);}80%{clip-path:inset(45% 0 35% 0);transform:translate(-2px,0);}}
 
-#hero{min-height:90vh;display:flex;flex-direction:column;justify-content:center;padding-top:100px;}
+#hero{min-height:90vh;display:flex;align-items:center;justify-content:space-between;gap:40px;padding-top:100px;flex-wrap:wrap;}
+.hero-left{flex:1;min-width:280px;}
+.hero-photo{width:280px;flex-shrink:0;}
+.hero-photo-box{background:#111;border:1px solid var(--border);border-radius:6px;aspect-ratio:3/4;overflow:hidden;}
+.hero-photo-box img{width:100%;height:100%;object-fit:cover;display:block;}
 .hero-divider{width:50px;height:3px;background:var(--accent);margin:22px 0;}
 .hero-tag{color:var(--gray);font-size:0.95rem;line-height:1.75;max-width:520px;}
 .hero-btns{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
@@ -109,6 +118,8 @@ section{max-width:1280px;margin:0 auto;padding:80px 60px;}
   .contact-grid{grid-template-columns:1fr!important;}
   .stats-row{gap:40px;}
   .footer-name{font-size:3rem;}
+  #hero{flex-direction:column-reverse;}
+  .hero-photo{width:60%;max-width:260px;}
 }
 </style>
 </head>
@@ -140,6 +151,7 @@ section{max-width:1280px;margin:0 auto;padding:80px 60px;}
 
 <div class="wrap">
   <section id="hero">
+    <div class="hero-left">
     <div class="label">PORTFOLIO</div>
     <div class="heading">
       <span class="w">KAZEEM</span>
@@ -150,6 +162,10 @@ section{max-width:1280px;margin:0 auto;padding:80px 60px;}
     <div class="hero-btns">
       <a href="#projects" class="btn-r">VIEW PROJECTS</a>
       <a href="https://github.com/HEKKO-X" class="btn-o" target="_blank" rel="noopener noreferrer">GITHUB</a>
+    </div>
+    </div>
+    <div class="hero-photo">
+      <div class="hero-photo-box"><img src="photo.jpg" alt="Kazeem Habeeb at his desk"/></div>
     </div>
   </section>
 </div>
@@ -355,6 +371,7 @@ section{max-width:1280px;margin:0 auto;padding:80px 60px;}
 </div>
 
 <script>
+document.querySelectorAll('.heading .r').forEach(function(el){ el.setAttribute('data-text', el.textContent); });
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
     const target = document.querySelector(a.getAttribute('href'));
