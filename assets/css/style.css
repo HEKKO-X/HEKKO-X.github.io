@@ -630,6 +630,26 @@ h1 span {
     top: 3px;
     margin-right: 0;
 }
+.d2c_exp_link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    color: var(--secondary_color);
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s all;
+}
+.d2c_exp_link i {
+    font-size: 12px;
+    transition: 0.3s all;
+}
+.d2c_exp_link:hover {
+    color: var(--default_color);
+}
+.d2c_exp_link:hover i {
+    transform: translateX(3px);
+}
 /* Experience Section End */
 
 /* Project Section Start */
